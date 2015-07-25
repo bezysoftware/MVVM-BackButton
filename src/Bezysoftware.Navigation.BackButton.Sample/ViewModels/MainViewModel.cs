@@ -8,7 +8,7 @@ namespace Bezysoftware.Navigation.BackButton.Sample.ViewModels
         private bool allowBack = false;
         private string backNavigationWarning;
 
-        public bool AllowBackKeyNavigation()
+        public bool AllowBackNavigation()
         {
             if (allowBack)
             {

@@ -9,7 +9,7 @@
             this.InitializeComponent();
         }
 
-        public bool AllowBackKeyNavigation()
+        public bool AllowBackNavigation()
         {
             if (this.Visibility == Windows.UI.Xaml.Visibility.Visible)
             {
