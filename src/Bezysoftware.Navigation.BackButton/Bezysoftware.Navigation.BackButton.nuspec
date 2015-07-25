@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Bezysoftware.Navigation.BackButton</id>
+    <version>$version$</version>
+    <title>MVVM BackButton</title>
+    <authors>bezysoftware</authors>
+    <owners>bezysoftware</owners>
+    <licenseUrl>https://github.com/bezysoftware/MVVM-BackButton/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/bezysoftware/MVVM-BackButton</projectUrl>
+    <iconUrl>https://github.com/bezysoftware/MVVM-BackButton/raw/master/art/logo.128x128.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>MVVM BackButton utility for UAP.</description>
+    <copyright>Copyright bezysoftware 2015</copyright>
+    <tags>MVVM UAP BackButton Navigation</tags>
+  </metadata>
+</package>
