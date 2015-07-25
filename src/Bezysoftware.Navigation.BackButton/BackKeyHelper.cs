@@ -30,9 +30,9 @@
 
             // start with the deepest objects. Unfortunatelly this cannot be cached, even for a single page, because custom dialogs 
             // might be injected dynamically into the View
-            var items = content.FindVisualChildren<IBackAwareObject>().Reverse().ToList();
+            var items = content.FindVisualChildren<IBackAwareObject>().Distinct().Reverse().ToList();
 
-            if (items.Any(view => view.AllowBackKeyNavigation()))
+            if (items.Any(view => !view.AllowBackKeyNavigation()))
             {
                 e.Handled = true;
             }
