@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.22823.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bezysoftware.Navigation.BackButton", "Bezysoftware.Navigation.BackButton\Bezysoftware.Navigation.BackButton.csproj", "{6316D947-DFB7-4117-B1B0-E1B934821539}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bezysoftware.Navigation.BackButton.Sample", "Bezysoftware.Navigation.BackButton.Sample\Bezysoftware.Navigation.BackButton.Sample.csproj", "{48858577-4F1A-476A-AA51-9A38AD46A8FF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,26 @@ Global
 		{6316D947-DFB7-4117-B1B0-E1B934821539}.Release|x64.Build.0 = Release|x64
 		{6316D947-DFB7-4117-B1B0-E1B934821539}.Release|x86.ActiveCfg = Release|x86
 		{6316D947-DFB7-4117-B1B0-E1B934821539}.Release|x86.Build.0 = Release|x86
+		{48858577-4F1A-476A-AA51-9A38AD46A8FF}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{48858577-4F1A-476A-AA51-9A38AD46A8FF}.Debug|ARM.ActiveCfg = Debug|ARM
+		{48858577-4F1A-476A-AA51-9A38AD46A8FF}.Debug|ARM.Build.0 = Debug|ARM
+		{48858577-4F1A-476A-AA51-9A38AD46A8FF}.Debug|ARM.Deploy.0 = Debug|ARM
+		{48858577-4F1A-476A-AA51-9A38AD46A8FF}.Debug|x64.ActiveCfg = Debug|x64
+		{48858577-4F1A-476A-AA51-9A38AD46A8FF}.Debug|x64.Build.0 = Debug|x64
+		{48858577-4F1A-476A-AA51-9A38AD46A8FF}.Debug|x64.Deploy.0 = Debug|x64
+		{48858577-4F1A-476A-AA51-9A38AD46A8FF}.Debug|x86.ActiveCfg = Debug|x86
+		{48858577-4F1A-476A-AA51-9A38AD46A8FF}.Debug|x86.Build.0 = Debug|x86
+		{48858577-4F1A-476A-AA51-9A38AD46A8FF}.Debug|x86.Deploy.0 = Debug|x86
+		{48858577-4F1A-476A-AA51-9A38AD46A8FF}.Release|Any CPU.ActiveCfg = Release|x86
+		{48858577-4F1A-476A-AA51-9A38AD46A8FF}.Release|ARM.ActiveCfg = Release|ARM
+		{48858577-4F1A-476A-AA51-9A38AD46A8FF}.Release|ARM.Build.0 = Release|ARM
+		{48858577-4F1A-476A-AA51-9A38AD46A8FF}.Release|ARM.Deploy.0 = Release|ARM
+		{48858577-4F1A-476A-AA51-9A38AD46A8FF}.Release|x64.ActiveCfg = Release|x64
+		{48858577-4F1A-476A-AA51-9A38AD46A8FF}.Release|x64.Build.0 = Release|x64
+		{48858577-4F1A-476A-AA51-9A38AD46A8FF}.Release|x64.Deploy.0 = Release|x64
+		{48858577-4F1A-476A-AA51-9A38AD46A8FF}.Release|x86.ActiveCfg = Release|x86
+		{48858577-4F1A-476A-AA51-9A38AD46A8FF}.Release|x86.Build.0 = Release|x86
+		{48858577-4F1A-476A-AA51-9A38AD46A8FF}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
