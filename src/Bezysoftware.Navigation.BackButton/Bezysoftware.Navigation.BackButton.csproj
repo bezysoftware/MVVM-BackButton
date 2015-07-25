@@ -109,7 +109,7 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="BackKeyHelper.cs" />
+    <Compile Include="BackButtonManager.cs" />
     <Compile Include="IBackAwareObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VisualTreeExtensions.cs" />
