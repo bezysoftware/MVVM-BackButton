@@ -57,7 +57,7 @@
                 Window.Current.Content = rootFrame;
                 
                 // Initialize BackKeyHelper
-                BackButtonManager.RegisterFrame(rootFrame, true);
+                BackButtonManager.RegisterFrame(rootFrame);
             }
 
             if (rootFrame.Content == null)

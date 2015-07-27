@@ -19,6 +19,7 @@
         private static List<Type> pageTypes;
 
         public static readonly DependencyProperty IsBackButtonEnabledProperty = DependencyProperty.RegisterAttached("IsBackButtonEnabled", typeof(bool), typeof(BackButtonManager), new PropertyMetadata(0));
+        private static bool scanCurrentContent;
 
         static BackButtonManager()
         {
@@ -62,10 +63,12 @@
         /// Register the frame.
         /// </summary>
         /// <param name="frame"> The frame. </param>
-        /// <param name="manuallyGoBack"> Specifies whether the BackKeyHelper should manually go back when back key is pressed. If set to false, the default behavior of the platform is to deactivate the app instead of performing back navigation. </param>
-        public static void RegisterFrame(Frame frame, bool manuallyGoBack = true)
+        /// <param name="scanCurrentContent"> Specifies whether the current window should be scanned for elements implementing <see cref="IBackAwareObject"/> which can prevent back navigation. </param>
+        /// <param name="manuallyGoBack"> Specifies whether the BackButtonManager should manually go back when back key is pressed. If set to false, the default behavior of the platform is to deactivate the app instead of performing back navigation. </param>
+        public static void RegisterFrame(Frame frame, bool scanCurrentContent = true, bool manuallyGoBack = true)
         {
             BackButtonManager.frame = frame;
+            BackButtonManager.scanCurrentContent = scanCurrentContent;
             BackButtonManager.manuallyGoBack = manuallyGoBack;
             SystemNavigationManager.GetForCurrentView().BackRequested += BackRequested;
 
@@ -90,7 +93,7 @@
 
             // start with the deepest objects. Unfortunatelly this cannot be cached, even for a single page, because custom dialogs 
             // might be injected dynamically into the View
-            var items = content.FindVisualChildren<IBackAwareObject>().Distinct().Reverse().ToList();
+            var items = scanCurrentContent ? content.FindVisualChildren<IBackAwareObject>().Distinct().Reverse().ToList() : Enumerable.Empty<IBackAwareObject>();
 
             if (items.Any(view => !view.AllowBackNavigation()))
             {
