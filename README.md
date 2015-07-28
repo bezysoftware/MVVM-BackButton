@@ -9,11 +9,13 @@ In UAP, working with the back button is not very convenient. There are three are
 #### Show / hide back button on desktop
 On desktop the app can display a back button in the top chrome. Pressing it has the same effect the back button has on a phone. Showing and hiding it needs to be done manually:
 
-```SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;```
+```csharp 
+SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+```
 
 This will show the button for every page in your app (including the main page). However, when you want to fine tune the visibility of the button (have it visible base on some condition in you ViewModel, or just have it hidden on some pages but visible on others), is when this library comes in handy. 
 
-```
+```xaml
 <Page
     x:Class="Bezysoftware.Navigation.BackButton.Sample.SecondPage"
     ...
@@ -30,7 +32,7 @@ The default behavior of the back button is to deactivate the app on a phone and 
 
 #### Prevent back navigation
 Last useful feature is to prevent navigation completely based on some condition. Typical scenario would be when you have a dialog open and instead of going back, you just want the dialog closed. Assuming the dialog is a UserControl, this gets very easy:
-```
+```csharp
 public sealed partial class Dialog : UserControl, IBackAwareObject
 {
     public Dialog()
@@ -58,7 +60,7 @@ The library also scans the DataContext of every UI element, so you can have your
 ## How?
 Initialization is a one-liner
 
-```
+```csharp
 BackButtonManager.RegisterFrame(rootFrame, true, true, true);
 ```
 
