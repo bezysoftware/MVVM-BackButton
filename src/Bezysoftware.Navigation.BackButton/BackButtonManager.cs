@@ -16,14 +16,15 @@
     {
         private static Frame frame;
         private static bool manuallyGoBack;
-        private static List<Type> pageTypes;
+        private static bool scanCurrentContent;
+        private static bool showBackButtonWhenCanGoBack;
+        private static Dictionary<Type, bool> pageTypes;
 
         public static readonly DependencyProperty IsBackButtonEnabledProperty = DependencyProperty.RegisterAttached("IsBackButtonEnabled", typeof(bool), typeof(BackButtonManager), new PropertyMetadata(0));
-        private static bool scanCurrentContent;
 
         static BackButtonManager()
         {
-            pageTypes = new List<Type>();
+            pageTypes = new Dictionary<Type, bool>();
         }
 
         public static bool GetIsBackButtonEnabled(DependencyObject obj)
@@ -49,7 +50,7 @@
 
             if (value)
             {
-                pageTypes.Add(page.GetType());
+                pageTypes.Add(page.GetType(), value);
             }
             else
             {
@@ -63,11 +64,13 @@
         /// Register the frame.
         /// </summary>
         /// <param name="frame"> The frame. </param>
+        /// <param name="showBackButtonWhenCanGoBack"> Automatically show back button when back navigation can happen. </param>
         /// <param name="scanCurrentContent"> Specifies whether the current window should be scanned for elements implementing <see cref="IBackAwareObject"/> which can prevent back navigation. </param>
         /// <param name="manuallyGoBack"> Specifies whether the BackButtonManager should manually go back when back key is pressed. If set to false, the default behavior of the platform is to deactivate the app instead of performing back navigation. </param>
-        public static void RegisterFrame(Frame frame, bool scanCurrentContent = true, bool manuallyGoBack = true)
+        public static void RegisterFrame(Frame frame, bool showBackButtonWhenCanGoBack = true, bool scanCurrentContent = true, bool manuallyGoBack = true)
         {
             BackButtonManager.frame = frame;
+            BackButtonManager.showBackButtonWhenCanGoBack = showBackButtonWhenCanGoBack;
             BackButtonManager.scanCurrentContent = scanCurrentContent;
             BackButtonManager.manuallyGoBack = manuallyGoBack;
             SystemNavigationManager.GetForCurrentView().BackRequested += BackRequested;
@@ -77,12 +80,26 @@
 
         private static void FrameNavigated(object sender, NavigationEventArgs e)
         {
-            if (pageTypes.Contains(e.SourcePageType))
+            if (pageTypes.ContainsKey(e.SourcePageType))
             {
+                // visibility is set manually
+                if (pageTypes[e.SourcePageType])
+                {
+                    SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+                }
+                else
+                {
+                    SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+                }
+            }
+            else if (showBackButtonWhenCanGoBack && frame.CanGoBack)
+            {
+                // can go back, show back button
                 SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
             }
             else
             {
+                // no manual visibility set, cannot go back
                 SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
             }
         }
