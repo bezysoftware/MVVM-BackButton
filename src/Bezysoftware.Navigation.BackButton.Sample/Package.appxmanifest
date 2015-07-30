@@ -7,11 +7,11 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="045adb7f-122e-4bb6-8a8c-f806fbe7257c"
+    Name="ae23005f-97e4-4283-a8d5-0247ae24980b"
     Publisher="CN=Tomas"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="045adb7f-122e-4bb6-8a8c-f806fbe7257c" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="ae23005f-97e4-4283-a8d5-0247ae24980b" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>Bezysoftware.Navigation.BackButton.Sample</DisplayName>
@@ -20,7 +20,7 @@
   </Properties>
 
   <Dependencies>
-    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.10069.0" MaxVersionTested="10.0.10069.0" />
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
   </Dependencies>
 
   <Resources>
@@ -33,10 +33,11 @@
       EntryPoint="Bezysoftware.Navigation.BackButton.Sample.App">
       <uap:VisualElements
         DisplayName="Bezysoftware.Navigation.BackButton.Sample"
-        Square150x150Logo="Assets\Logo.png"
-        Square44x44Logo="Assets\SmallLogo.png"
+        Square150x150Logo="Assets\Square150x150Logo.png"
+        Square44x44Logo="Assets\Square44x44Logo.png"
         Description="Bezysoftware.Navigation.BackButton.Sample"
-        BackgroundColor="#464646">
+        BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
     </Application>

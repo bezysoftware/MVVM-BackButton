@@ -8,7 +8,6 @@
     using Windows.UI.Xaml.Controls;
     using Windows.UI.Xaml.Navigation;
 
-
     /// <summary>
     /// Helper class which can monitor back key presses and delegate corresponding events to active Views and their DataContexts which then have the option to handle it.
     /// </summary>
@@ -50,11 +49,17 @@
 
             if (value)
             {
-                pageTypes.Add(page.GetType(), value);
+                if (!pageTypes.ContainsKey(page.GetType()))
+                {
+                    pageTypes.Add(page.GetType(), value);
+                }
             }
             else
             {
-                pageTypes.Remove(page.GetType());
+                if (pageTypes.ContainsKey(page.GetType()))
+                {
+                    pageTypes.Remove(page.GetType());
+                }
             }
 
             obj.SetValue(IsBackButtonEnabledProperty, value);

@@ -1,6 +1,5 @@
 namespace Bezysoftware.Navigation.BackButton.Sample.ViewModels
 {
-    using GalaSoft.MvvmLight;
     using GalaSoft.MvvmLight.Ioc;
     using Microsoft.Practices.ServiceLocation;
 

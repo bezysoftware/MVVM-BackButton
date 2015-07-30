@@ -55,7 +55,7 @@
 
                 // Place the frame in the current Window
                 Window.Current.Content = rootFrame;
-                
+
                 // Initialize BackKeyHelper
                 BackButtonManager.RegisterFrame(rootFrame);
             }
