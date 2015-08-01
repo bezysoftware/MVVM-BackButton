@@ -1,10 +1,10 @@
 # MVVM BackButton
 
 ## What?
-Project to simplify your life with the back button in UAP.
+Project to simplify your life with the back button in UWP.
 
 ## Why?
-In UAP, working with the back button is not very convenient. There are three areas where you need to manually write rendundant code to work with it:
+In UWP, working with the back button is not very convenient. There are three areas where you need to manually write rendundant code to work with it:
 
 #### Show / hide back button on desktop
 On desktop the app can display a back button in the top chrome. Pressing it has the same effect the back button has on a phone. Showing and hiding it needs to be done manually:
