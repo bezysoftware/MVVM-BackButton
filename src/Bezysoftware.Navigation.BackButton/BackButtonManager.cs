@@ -62,6 +62,11 @@
                 }
             }
 
+            if (frame.CurrentSourcePageType == page.GetType())
+            {
+                SwitchBackButtonVisibility(page.GetType());
+            }
+
             obj.SetValue(IsBackButtonEnabledProperty, value);
         }
 
@@ -85,10 +90,15 @@
 
         private static void FrameNavigated(object sender, NavigationEventArgs e)
         {
-            if (pageTypes.ContainsKey(e.SourcePageType))
+            SwitchBackButtonVisibility(e.SourcePageType);
+        }
+
+        private static void SwitchBackButtonVisibility(Type pageType)
+        {
+            if (pageTypes.ContainsKey(pageType))
             {
                 // visibility is set manually
-                if (pageTypes[e.SourcePageType])
+                if (pageTypes[pageType])
                 {
                     SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
                 }
