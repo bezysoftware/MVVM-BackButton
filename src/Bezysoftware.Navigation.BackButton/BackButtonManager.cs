@@ -17,21 +17,15 @@
         private static bool manuallyGoBack;
         private static bool scanCurrentContent;
         private static bool showBackButtonWhenCanGoBack;
-        private static Dictionary<Type, bool> pageTypes;
 
-        public static readonly DependencyProperty IsBackButtonEnabledProperty = DependencyProperty.RegisterAttached("IsBackButtonEnabled", typeof(bool), typeof(BackButtonManager), new PropertyMetadata(false, IsBackButtonEnabledChanged));
+        public static readonly DependencyProperty IsBackButtonEnabledProperty = DependencyProperty.RegisterAttached("IsBackButtonEnabled", typeof(object), typeof(BackButtonManager), new PropertyMetadata(null, IsBackButtonEnabledChanged));
 
-        static BackButtonManager()
+        public static object GetIsBackButtonEnabled(DependencyObject obj)
         {
-            pageTypes = new Dictionary<Type, bool>();
+            return (object)obj.GetValue(IsBackButtonEnabledProperty);
         }
 
-        public static bool GetIsBackButtonEnabled(DependencyObject obj)
-        {
-            return (bool)obj.GetValue(IsBackButtonEnabledProperty);
-        }
-
-        public static void SetIsBackButtonEnabled(DependencyObject obj, bool value)
+        public static void SetIsBackButtonEnabled(DependencyObject obj, object value)
         {
             obj.SetValue(IsBackButtonEnabledProperty, value);
         }
@@ -56,15 +50,30 @@
 
         private static void FrameNavigated(object sender, NavigationEventArgs e)
         {
-            SwitchBackButtonVisibility(e.SourcePageType);
+            var page = BackButtonManager.frame.Content as Page;
+
+            SwitchBackButtonVisibility(GetIsBackButtonEnabled(page), page.GetType());
         }
 
-        private static void SwitchBackButtonVisibility(Type pageType)
+        private static void SwitchBackButtonVisibility(object show, Type pageType)
         {
-            if (pageTypes.ContainsKey(pageType))
+            bool s;
+            if (show != null && bool.TryParse(show.ToString(), out s))
+            {
+                SwitchBackButtonVisibility(s, pageType);
+            }
+            else
+            {
+                SwitchBackButtonVisibility((bool?)null, pageType);
+            }
+        }
+
+        private static void SwitchBackButtonVisibility(bool? show, Type pageType)
+        {
+            if (show.HasValue)
             {
                 // visibility is set manually
-                if (pageTypes[pageType])
+                if (show.Value)
                 {
                     SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
                 }
@@ -108,20 +117,13 @@
         private static void IsBackButtonEnabledChanged(DependencyObject obj, DependencyPropertyChangedEventArgs e)
         {
             var page = obj as Page;
-            var value = (bool)e.NewValue;
 
             if (page == null)
             {
                 throw new ArgumentException("This attached property targets only Page");
             }
 
-            pageTypes[page.GetType()] = value;
-
-            if (frame.CurrentSourcePageType == page.GetType())
-            {
-                SwitchBackButtonVisibility(page.GetType());
-            }
+            SwitchBackButtonVisibility(e.NewValue.ToString(), page.GetType());
         }
-
     }
 }
