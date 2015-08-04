@@ -1,5 +1,6 @@
 ﻿namespace Bezysoftware.Navigation.BackButton.Sample
 {
+    using ViewModels;
     using System;
     using Windows.ApplicationModel;
     using Windows.ApplicationModel.Activation;
@@ -36,7 +37,6 @@
                 this.DebugSettings.EnableFrameRateCounter = true;
             }
 #endif
-
             Frame rootFrame = Window.Current.Content as Frame;
 
             // Do not repeat app initialization when the Window already has content,
