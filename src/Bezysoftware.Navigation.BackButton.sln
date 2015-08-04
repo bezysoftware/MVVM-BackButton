@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bezysoftware.Navigation.Bac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bezysoftware.Navigation.BackButton.Sample", "Bezysoftware.Navigation.BackButton.Sample\Bezysoftware.Navigation.BackButton.Sample.csproj", "{877F765B-BEA6-43FD-9B73-5293FE9ED534}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bezysoftware.Navigation.BackButton.Tests", "Bezysoftware.Navigation.BackButton.Tests\Bezysoftware.Navigation.BackButton.Tests.csproj", "{DD68C76D-2BCE-4026-8D2C-08C7AEADEB59}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,28 @@ Global
 		{877F765B-BEA6-43FD-9B73-5293FE9ED534}.Release|x86.ActiveCfg = Release|x86
 		{877F765B-BEA6-43FD-9B73-5293FE9ED534}.Release|x86.Build.0 = Release|x86
 		{877F765B-BEA6-43FD-9B73-5293FE9ED534}.Release|x86.Deploy.0 = Release|x86
+		{DD68C76D-2BCE-4026-8D2C-08C7AEADEB59}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{DD68C76D-2BCE-4026-8D2C-08C7AEADEB59}.Debug|Any CPU.Build.0 = Debug|x86
+		{DD68C76D-2BCE-4026-8D2C-08C7AEADEB59}.Debug|Any CPU.Deploy.0 = Debug|x86
+		{DD68C76D-2BCE-4026-8D2C-08C7AEADEB59}.Debug|ARM.ActiveCfg = Debug|ARM
+		{DD68C76D-2BCE-4026-8D2C-08C7AEADEB59}.Debug|ARM.Build.0 = Debug|ARM
+		{DD68C76D-2BCE-4026-8D2C-08C7AEADEB59}.Debug|ARM.Deploy.0 = Debug|ARM
+		{DD68C76D-2BCE-4026-8D2C-08C7AEADEB59}.Debug|x64.ActiveCfg = Debug|x64
+		{DD68C76D-2BCE-4026-8D2C-08C7AEADEB59}.Debug|x64.Build.0 = Debug|x64
+		{DD68C76D-2BCE-4026-8D2C-08C7AEADEB59}.Debug|x64.Deploy.0 = Debug|x64
+		{DD68C76D-2BCE-4026-8D2C-08C7AEADEB59}.Debug|x86.ActiveCfg = Debug|x86
+		{DD68C76D-2BCE-4026-8D2C-08C7AEADEB59}.Debug|x86.Build.0 = Debug|x86
+		{DD68C76D-2BCE-4026-8D2C-08C7AEADEB59}.Debug|x86.Deploy.0 = Debug|x86
+		{DD68C76D-2BCE-4026-8D2C-08C7AEADEB59}.Release|Any CPU.ActiveCfg = Release|x86
+		{DD68C76D-2BCE-4026-8D2C-08C7AEADEB59}.Release|ARM.ActiveCfg = Release|ARM
+		{DD68C76D-2BCE-4026-8D2C-08C7AEADEB59}.Release|ARM.Build.0 = Release|ARM
+		{DD68C76D-2BCE-4026-8D2C-08C7AEADEB59}.Release|ARM.Deploy.0 = Release|ARM
+		{DD68C76D-2BCE-4026-8D2C-08C7AEADEB59}.Release|x64.ActiveCfg = Release|x64
+		{DD68C76D-2BCE-4026-8D2C-08C7AEADEB59}.Release|x64.Build.0 = Release|x64
+		{DD68C76D-2BCE-4026-8D2C-08C7AEADEB59}.Release|x64.Deploy.0 = Release|x64
+		{DD68C76D-2BCE-4026-8D2C-08C7AEADEB59}.Release|x86.ActiveCfg = Release|x86
+		{DD68C76D-2BCE-4026-8D2C-08C7AEADEB59}.Release|x86.Build.0 = Release|x86
+		{DD68C76D-2BCE-4026-8D2C-08C7AEADEB59}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
