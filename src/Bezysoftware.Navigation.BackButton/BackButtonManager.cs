@@ -39,6 +39,11 @@
         /// <param name="manuallyGoBack"> Specifies whether the BackButtonManager should manually go back when back key is pressed. If set to false, the default behavior of the platform is to deactivate the app instead of performing back navigation. </param>
         public static void RegisterFrame(Frame frame, bool showBackButtonWhenCanGoBack = true, bool scanCurrentContent = true, bool manuallyGoBack = true)
         {
+            if (Windows.ApplicationModel.DesignMode.DesignModeEnabled)
+            {
+                return;
+            }
+
             BackButtonManager.frame = frame;
             BackButtonManager.showBackButtonWhenCanGoBack = showBackButtonWhenCanGoBack;
             BackButtonManager.scanCurrentContent = scanCurrentContent;
