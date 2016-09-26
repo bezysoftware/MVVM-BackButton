@@ -121,6 +121,11 @@
 
         private static void IsBackButtonEnabledChanged(DependencyObject obj, DependencyPropertyChangedEventArgs e)
         {
+            if (Windows.ApplicationModel.DesignMode.DesignModeEnabled)
+            {
+                return;
+            }
+
             var page = obj as Page;
 
             if (page == null)
